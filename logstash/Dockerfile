@@ -1,4 +1,7 @@
-FROM docker.elastic.co/logstash/logstash:7.9.3
+ARG ELK_VERSION
 
-RUN rm -f /usr/share/logstash/pipeline/logstash.conf
-COPY pipeline /usr/share/logstash/pipeline/
+# https://www.docker.elastic.co/
+FROM docker.elastic.co/logstash/logstash:${ELK_VERSION}
+
+# Add your logstash plugins setup here
+# Example: RUN logstash-plugin install logstash-filter-json
